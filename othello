@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+
+</body>
+
+
+<script>
+
+    //Proves del joc
+    // Variables
+    var dificultat = saberDades();
+    var nom = "";
+    var contador = 0;
+    //Fer proves, encara no es la funció final
+
+    omplirTaulell();
+    click();
+    //var taulell = new Array();
+
+
+    function click () {
+
+        var celdas = document.getElementsByTagName("td");
+
+        for (var i = 0; i < celdas.length; i++) {
+
+            celdas[i].addEventListener("click", canviColor,false);
+
+        }
+
+
+    }
+
+
+
+
+    function omplirTaulell () {
+
+        if (dificultat == 1) {
+
+            // Obtener la referencia del elemento body
+            var body = document.getElementsByTagName("body")[0];
+
+            // Crea un elemento <table> y un elemento <tbody>
+            var tabla   = document.createElement("table");
+            var tblBody = document.createElement("tbody");
+
+            // Crea las celdas
+            for (var i = 0; i < 8; i++) {
+                // Crea las hileras de la tabla
+                var hilera = document.createElement("tr");
+
+                for (var j = 0; j < 8; j++) {
+                    // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+                    // texto sea el contenido de <td>, ubica el elemento <td> al final
+                    // de la hilera de la tabla
+                    var celda = document.createElement("td");
+                    var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
+                    celda.appendChild(textoCelda);
+                    hilera.appendChild(celda);
+                }
+
+                // agrega la hilera al final de la tabla (al final del elemento tblbody)
+                tblBody.appendChild(hilera);
+            }
+
+            // posiciona el <tbody> debajo del elemento <table>
+            tabla.appendChild(tblBody);
+            // appends <table> into <body>
+            body.appendChild(tabla);
+            // modifica el atributo "border" de la tabla y lo fija a "2";
+            tabla.setAttribute("border", "2");
+
+        }
+
+        if (dificultat == 2) {
+            var body = document.getElementsByTagName("body")[0];
+
+            // Crea un elemento <table> y un elemento <tbody>
+            var tabla   = document.createElement("table");
+            var tblBody = document.createElement("tbody");
+
+            // Crea las celdas
+            for (var i = 0; i < 10; i++) {
+                // Crea las hileras de la tabla
+                var hilera = document.createElement("tr");
+
+                for (var j = 0; j < 10; j++) {
+                    // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+                    // texto sea el contenido de <td>, ubica el elemento <td> al final
+                    // de la hilera de la tabla
+                    var celda = document.createElement("td");
+                    var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
+                    celda.appendChild(textoCelda);
+                    hilera.appendChild(celda);
+                }
+
+                // agrega la hilera al final de la tabla (al final del elemento tblbody)
+                tblBody.appendChild(hilera);
+            }
+
+            // posiciona el <tbody> debajo del elemento <table>
+            tabla.appendChild(tblBody);
+            // appends <table> into <body>
+            body.appendChild(tabla);
+            // modifica el atributo "border" de la tabla y lo fija a "2";
+            tabla.setAttribute("border", "2");
+
+        }
+        if (dificultat == 3) {
+            var body = document.getElementsByTagName("body")[0];
+
+            // Crea un elemento <table> y un elemento <tbody>
+            var tabla   = document.createElement("table");
+            var tblBody = document.createElement("tbody");
+
+            // Crea las celdas
+            for (var i = 0; i < 16; i++) {
+                // Crea las hileras de la tabla
+                var hilera = document.createElement("tr");
+
+                for (var j = 0; j < 16; j++) {
+                    // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+                    // texto sea el contenido de <td>, ubica el elemento <td> al final
+                    // de la hilera de la tabla
+                    var celda = document.createElement("td");
+                    var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
+                    celda.appendChild(textoCelda);
+                    hilera.appendChild(celda);
+                }
+
+                // agrega la hilera al final de la tabla (al final del elemento tblbody)
+                tblBody.appendChild(hilera);
+            }
+
+            // posiciona el <tbody> debajo del elemento <table>
+            tabla.appendChild(tblBody);
+            // appends <table> into <body>
+            body.appendChild(tabla);
+            // modifica el atributo "border" de la tabla y lo fija a "2";
+            tabla.setAttribute("border", "2");
+
+        }
+
+    }
+
+    function saberDades () {
+
+        do {
+            nom = prompt("Indica el vostre nom siusplau");
+        }while (!isNaN(nom) || nom == " ")
+
+        dificultat = Number(prompt("Bones " + nom + "\nIndica la dificultat siusplau\n1. Peitit (8x8). \n2. Mitja (10x10). \n3. Gran (16x16"));
+
+        while ((dificultat > 3 || dificultat < 1) || isNaN(Number(dificultat))) {
+            dificultat = prompt("Indica una dificultat apropiada");
+
+
+        }
+        return Number(dificultat);
+
+    }
+
+    function canviColor() {
+
+        if (contador % 2 == 0 || contador == 0) {
+            this.style.backgroundColor = 'green';
+            console.log(this);
+            contador++;
+        }
+        else {
+            this.style.backgroundColor = 'red';
+            contador++;
+        }
+    }
+
+
+</script>
+</html>
