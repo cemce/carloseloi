@@ -29,6 +29,7 @@
 
         for (var i = 0; i < celdas.length; i++) {
 
+
             celdas[i].addEventListener("click", canviColor,false);
 
         }
@@ -168,14 +169,16 @@
 
     function canviColor() {
 
-        if (contador % 2 == 0 || contador == 0) {
+        if ((contador % 2 == 0 || contador == 0) && (this.style.backgroundColor != 'green' && this.style.backgroundColor != 'red')) {
             this.style.backgroundColor = 'green';
-            console.log(this);
             contador++;
         }
         else {
-            this.style.backgroundColor = 'red';
-            contador++;
+
+            if ((this.style.backgroundColor != 'green' && this.style.backgroundColor != 'red')) {
+                this.style.backgroundColor = 'red';
+                contador++;
+            }
         }
     }
 
